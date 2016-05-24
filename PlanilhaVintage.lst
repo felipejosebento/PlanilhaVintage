@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 12.00.30501.0	    05/24/16 19:49:56
+Microsoft (R) Macro Assembler Version 12.00.30501.0	    05/24/16 20:07:16
 !Planilha-Vintage(FelipeJoseBento			     Page 1 - 1
 
 
@@ -32,7 +32,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    05/24/16 19:49:56
  00000005  00000008 [			text BYTE tamTexto DUP(?),0			; Um título em uma célula ou texto, terá no máximo 8 characteres ASCII
 	    00
 	   ] 00
- 00930F56  00000008 [			formula BYTE tamTexto DUP(?),0		; Uma fórmula terá tamanho máximo de 10 characteres ASCII 
+ 010E117E  00000008 [			formula BYTE tamTexto DUP(?),0		; Uma fórmula terá tamanho máximo de 10 characteres ASCII 
 	    00
 	   ] 00
 				Cell ENDS
@@ -1394,7 +1394,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    05/24/16 19:49:56
  00000652			main ENDP
 
 				END main
-Microsoft (R) Macro Assembler Version 12.00.30501.0	    05/24/16 19:49:56
+Microsoft (R) Macro Assembler Version 12.00.30501.0	    05/24/16 20:07:16
 !Planilha-Vintage(FelipeJoseBento			     Symbols 2 - 1
 
 

@@ -1,4 +1,4 @@
-;TITLE Planilha-Vintage-Interface(FelipeJoseBento)
+	;TITLE Planilha-Vintage-Interface(FelipeJoseBento)
 ;Arquivos com todas as funçoes relacionadas com a interface com o usuário da Planilha
 ;Sendo que essas funçoes são controladas por um controlador
 
@@ -184,7 +184,7 @@ ImprimeMenu PROC
 	call WriteString
 	call Crlf
 	
-	;menuOp1 BYTE "1 - INSERIR VALOR EM UMA CELULA.",0
+	;menuOp1 BYTE "1 - INSERIR VALOR OU FORMULA EM UMA CELULA.",0
 	mov edx, OFFSET menuOp1
 	call WriteString
 	call Crlf
@@ -209,13 +209,23 @@ ImprimeMenu PROC
 	call WriteString
 	call Crlf
 
-	;menuOp5 BYTE "6 - DELETAR UMA COLUNA.",0
+	;menuOp5 BYTE "6 - FUNCAO MAIOR.",0
 	mov edx, OFFSET menuOp6
 	call WriteString
 	call Crlf
 
-	;menuOp6 BYTE "7 - DELETAR UMA LINHA.",0  
+	;menuOp6 BYTE "7 - FUNCAO MENOr.",0  
 	mov edx, OFFSET menuOp7
+	call WriteString
+	call Crlf
+
+	;menuOp6 BYTE "8 - FUNCAO CONT.NUM.",0  
+	mov edx, OFFSET menuOp8
+	call WriteString
+	call Crlf
+
+	;menuOp6 BYTE "7 - COPIAR FORMULA .",0  
+	mov edx, OFFSET menuOp9
 	call WriteString
 	call Crlf
 	
@@ -254,6 +264,18 @@ LeituraOpMenu:
 
 	cmp eax, ebx
 	je EntradaValida
+	inc ebx
+
+	cmp eax, ebx
+	je EntradaValida
+	inc ebx
+
+	cmp eax, ebx
+	je EntradaValida
+	inc ebx
+
+	cmp eax, ebx
+	je EntradaValida
 
 EntradaInvalida:
     mov  edx,OFFSET menuMsgErro
@@ -265,6 +287,159 @@ EntradaValida:
 	pop edx
 	ret
 ImprimeMenu ENDP
+
+MenorUser PROC
+
+	;Procedimento com o intuito de passar os parametros 
+	;para a funcao Modo
+	;Quando o usuario digita o intervalo
+
+	pushad
+	mov esi, OFFSET Linha1
+	mov eax,0
+	
+	;funcaoMsg1 BYTE "Digite a coluna no qual deseja inserir a funcao: ", 0
+	mov edx, OFFSET funcaoMsg1
+	call WriteString
+	call ReadHex	 ; EAX = COLUNA
+	push eax		 ; Posição da Coluna na Pilha
+
+	;funcaoMsg2 BYTE "Digite a linha na qual deseja inserir a funca: ", 0
+	mov edx, OFFSET funcaoMsg2
+	call WriteString
+	call ReadHex	 ;EAX = LINHA
+	
+	push eax		 ;Posição da Linha na Pilha
+
+	;Preenchendo célula Aux com os dados do usuário
+	;Utilizando o tipo de entrada preencher a célula
+	mov edi, OFFSET areaTransferencia
+	
+	;inserirMsg10 BYTE "Digite o intervalo para calcular o MENOR, (Ex: M=B4:B8): ",0
+	mov edx, OFFSET inserirMsg10
+	call WriteString
+	
+	;Inserindo Formula
+	mov (Cell  PTR[edi]).typ, 3
+	lea edx, (Cell  PTR[edi]).formula		; EDX endereço de onde sera salvo
+	mov ecx, tamTexto						; Tamanho máximo digitado
+	call ReadString							; Salvando direto na memoria
+
+	;Recuperando a posição da linha e da coluna
+	pop eax		;Linha
+	pop ebx		;Coluna
+
+	;CHAMANDO A FUNCAO INSERE 
+	call EnderecoCelula
+	call InserirCelula
+
+	;Receuperando valores originais dos registradores
+	popad
+
+	ret
+
+MenorUser ENDP
+
+MaiorUser PROC
+	;Procedimento com o intuito de passar os parametros 
+	;para a funcao Modo
+	;Quando o usuario digita o intervalo
+
+	pushad
+	mov esi, OFFSET Linha1
+	mov eax,0
+	
+	;funcaoMsg1 BYTE "Digite a coluna no qual deseja inserir: ", 0
+	mov edx, OFFSET funcaoMsg1
+	call WriteString
+	call ReadHex	 ; EAX = COLUNA
+	push eax		 ; Posição da Coluna na Pilha
+
+	;funcaoMsg2 BYTE "Digite a linha na qual deseja inserir: ", 0
+	mov edx, OFFSET funcaoMsg2
+	call WriteString
+	call ReadHex	 ;EAX = LINHA
+	
+	push eax		 ;Posição da Linha na Pilha
+
+	;Preenchendo célula Aux com os dados do usuário
+	;Utilizando o tipo de entrada preencher a célula
+	mov edi, OFFSET areaTransferencia
+	
+	;inserirMsg9 BYTE "Digite o intervalo para calcular o MODO "Ex: =MODO(A2:A4)": ",0
+	mov edx, OFFSET inserirMsg9
+	call WriteString
+	
+	;Inserindo Formula
+	mov (Cell  PTR[edi]).typ, 3
+	lea edx, (Cell  PTR[edi]).formula		; EDX endereço de onde sera salvo
+	mov ecx, tamTexto						; Tamanho máximo digitado
+	call ReadString							; Salvando direto na memoria
+
+	;Recuperando a posição da linha e da coluna
+	pop eax		;Linha
+	pop ebx		;Coluna
+
+	;CHAMANDO A FUNCAO INSERE 
+	call EnderecoCelula
+	call InserirCelula
+
+	;Receuperando valores originais dos registradores
+	popad
+
+	ret
+
+MaiorUser ENDP
+
+ContNumUser PROC
+
+	;Essa formula tem como objetivo contar o número de células que estão preenchidas em um determinado intervalo de uma coluna.
+	
+	pushad
+	mov esi, OFFSET Linha1
+	mov eax,0
+	
+	;funcaoMsg1 BYTE "Digite a coluna no qual deseja inserir a funcao: ", 0
+	mov edx, OFFSET funcaoMsg1
+	call WriteString
+	call ReadHex	 ; EAX = COLUNA
+	push eax		 ; Posição da Coluna na Pilha
+
+	;funcaoMsg2 BYTE "Digite a linha na qual deseja inserir a funcao: ", 0
+	mov edx, OFFSET funcaoMsg2
+	call WriteString
+	call ReadHex	 ;EAX = LINHA
+	
+	push eax		 ;Posição da Linha na Pilha
+
+	;Preenchendo célula Aux com os dados do usuário
+	;Utilizando o tipo de entrada preencher a célula
+	mov edi, OFFSET areaTransferencia
+	
+	;inserirMsg11 BYTE "Digite o intervalo para CONT.NUM, (Ex: C=E1:B5): ",0
+	mov edx, OFFSET inserirMsg11
+	call WriteString
+	
+	;Inserindo Formula
+	mov (Cell  PTR[edi]).typ, 3
+	lea edx, (Cell  PTR[edi]).formula		; EDX endereço de onde sera salvo
+	mov ecx, tamTexto						; Tamanho máximo digitado
+	call ReadString							; Salvando direto na memoria
+
+	;Recuperando a posição da linha e da coluna
+	pop eax		;Linha
+	pop ebx		;Coluna
+
+	;CHAMANDO A FUNCAO INSERE 
+	call EnderecoCelula
+	call InserirCelula
+
+	;Receuperando valores originais dos registradores
+	popad
+
+	ret
+
+ContNumUser ENDP
 
 InserirUser PROC
 	;Função com o intuito de passar os parametros 
@@ -470,6 +645,74 @@ CopiarUser PROC
 
 	ret
 CopiarUser ENDP
+
+CopiaFormulaUser PROC
+	;Procedimento que executa a funcionalida(Copiar/Colar) com o usuario
+	;Solicita a Celula a ser copiada
+	;Solicita o destino a ser colado
+	;Executa a ação Copiar/Colar
+	push esi
+	push eax
+	push edx
+	push ebx
+
+	mov eax,0
+
+	;copiarMsg1	BYTE "Digite a coluna da celula que deseja copiar: ",0
+
+	mov edx, OFFSET copiarMsg1
+	call WriteString
+	call ReadHex	 ; EAX = COLUNA
+	mov ebx, eax	 ; EBX recebe a COLUNA
+
+	;copiarMsg2	BYTE "Digite a linha da celula que deseja copiar: ", 0
+
+	mov edx, OFFSET copiarMsg2
+	call WriteString
+	call ReadHex	 ;EAX = LINHA
+
+	mov esi, OFFSET Linha1
+	call EnderecoCelula
+	call CopiarCelula
+
+	;copiarMsg3	BYTE "Digite a coluna da celula para onde deseja colar: ",0
+
+	mov edx, OFFSET copiarMsg3
+	call WriteString
+	call ReadHex	 ; EAX = COLUNA
+	mov ebx, eax	 ; EBX recebe a COLUNA
+
+	;copiarMsg4	BYTE "Digite a linha da celula para onde  deseja colar: ", 0
+
+	mov edx, OFFSET copiarMsg4
+	call WriteString
+	call ReadHex	 ;EAX = LINHA
+
+	;VAMOS MODIFICAR A COLUNA
+	push edx
+	push ebx
+	push edi
+	add bl, 37h
+	mov edi, OFFSET areaTransferencia
+	lea edx,(CELL PTR[edi]).formula
+	mov [edx+1], bl
+	mov [edx+4], bl
+	pop edi
+	pop ebx
+	pop edx
+
+	mov esi, OFFSET Linha1
+	call EnderecoCelula
+	call ColarCelula
+
+	;Recuperando Registradores
+	pop ebx
+	pop edx
+	pop eax
+	pop esi
+
+	ret
+CopiaFormulaUser ENDP
 
 RecortarUser PROC
 	;Procedimento que executa a funcionalida(Recortar/Colar) com o usuario

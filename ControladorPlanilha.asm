@@ -44,11 +44,19 @@ InicioControlador:
 	inc ebx
 
 	cmp ebx, eax
-	je controladorDColuna
+	je controladorFuncaoMaior
 	inc ebx
 
 	cmp ebx, eax
-	je controladorDLinha
+	je controladorFuncaoMenor
+	inc ebx
+
+	cmp ebx, eax
+	je controladorcNum
+	inc ebx
+
+	cmp ebx, eax
+	je controladorCopiaFormula
 	
 	jmp FimControlador
 
@@ -100,11 +108,39 @@ controladorSelecionaCelula:
 	jmp FimControlador
 
 ;6
-controladorDColuna:
+controladorFuncaoMaior:
+	call Clrscr
+	call ImprimePlanilha
+	call Crlf
+	call Crlf
+	call MaiorUser
 	jmp FimControlador
 
 ;7
-controladorDLinha:
+controladorFuncaoMenor:
+	call Clrscr
+	call ImprimePlanilha
+	call Crlf
+	call Crlf
+	call MenorUser
+	jmp FimControlador
+
+;8
+controladorcNum:
+	call Clrscr
+	call ImprimePlanilha
+	call Crlf
+	call Crlf
+	call ContNumUser
+	jmp FimControlador
+
+;9
+controladorCopiaFormula:
+	call Clrscr
+	call ImprimePlanilha
+	call Crlf
+	call Crlf
+	call CopiaFormulaUser
 	jmp FimControlador
 
 FimControlador:
@@ -112,7 +148,6 @@ FimControlador:
 	pop esi
 	pop ebx
 	pop eax
-
 	ret
 controladorPrincipal ENDP
 

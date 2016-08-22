@@ -203,13 +203,6 @@ ColarCelula PROC
 	ret
 ColarCelula ENDP
 
-ExcluirColuna PROC
-
-ExcluirColuna ENDP
-
-CopiarColuna PROC
-
-CopiarColuna ENDP
 
 
 

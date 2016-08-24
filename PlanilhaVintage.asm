@@ -21,21 +21,21 @@ TotalLinhas= 11	 ; Total de linha que terá a planilha, sendo de 1 até TotalLinha
 Linha1  Cell TotalColunas DUP(<>)   
 Linha2  Cell TotalColunas DUP(<>)
 Linha3  Cell TotalColunas DUP(<>)
-Linha4  Cell TotalColunas DUP(<>)
+Linha4  Cell TotalColunas DUP(<>) 
 Linha5  Cell TotalColunas DUP(<>)   
 Linha6  Cell TotalColunas DUP(<>) 
 Linha7  Cell TotalColunas DUP(<>)  
 Linha8  Cell TotalColunas DUP(<>) 
-Linha9  Cell TotalColunas DUP(<>)
+Linha9  Cell TotalColunas DUP(<>)   
 menu BYTE "PlanilhaVintage - Menu",0
-menuOp1 BYTE "1 - INSERIR VALOR OU FORMULA EM UMA CELULA.",0
+menuOp1 BYTE "1 - INSERIR VALOR OU FORMULA EM UMA CELULA.",0 
 menuOp2 BYTE "2 - DELETAR VALOR DE UMA UMA CELULA.",0    
-menuOp3 BYTE "3 - COPIAR VALOR DE UMA CELULA PARA OUTRA.",0  
+menuOp3 BYTE "3 - COPIAR VALOR OU FORMULA DE UMA CELULA PARA OUTRA.",0  
 menuOp4 BYTE "4 - RECORTAR  VALOR DE UMA CELULA PARA OUTRA.",0 
 menuOp5 BYTE "5 - SELECIONAR UMA CELULA.", 0 
 menuOp6 BYTE "6 - Funcao MAIOR.",0
 menuOp7 BYTE "7 - Funcao MENOR.",0 
-menuOp8 BYTE "8 - Funcao CONT.NUM.",0 
+menuOp8 BYTE "8 - Funcao CONT.VALORES.",0 
 menuOp9 BYTE "9 - Arrastar Formula.",0 
 menuMsg1 BYTE "Digite uma opcao: ",0
 menuMsgErro BYTE "Entrada Invalida, por favor digite novamente: ", 0 

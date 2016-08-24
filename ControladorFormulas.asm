@@ -216,6 +216,8 @@ CONT1:
 	je INCR
 	cmp al, 3
 	je INCR
+	cmp al, 2
+	je INCR
 	jmp SALT
 INCR:
 	inc ecx

@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
+Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/23/16 11:43:44
 !Planilha-Vintage(FelipeJoseBento			     Page 1 - 1
 
 
@@ -32,7 +32,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
  00000005  00000008 [			text BYTE tamTexto DUP(?),0			; Um título em uma célula ou texto, terá no máximo 8 characteres ASCII
 	    00
 	   ] 00
- 0165EA9E  00000008 [			formula BYTE tamTexto DUP(?),0		; Uma fórmula terá tamanho máximo de 10 characteres ASCII 
+ 00A2F036  00000008 [			formula BYTE tamTexto DUP(?),0		; Uma fórmula terá tamanho máximo de 10 characteres ASCII 
 	    00
 	   ] 00
 				Cell ENDS  
@@ -70,7 +70,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	     00
 	    ] 00
 	   ]
- 00000159  00000005 [		Linha4  Cell TotalColunas DUP(<>)
+ 00000159  00000005 [		Linha4  Cell TotalColunas DUP(<>) 
 	    00 00000000
 	    00000008 [
 	     00
@@ -115,7 +115,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	     00
 	    ] 00
 	   ]
- 00000398  00000005 [		Linha9  Cell TotalColunas DUP(<>)
+ 00000398  00000005 [		Linha9  Cell TotalColunas DUP(<>)   
 	    00 00000000
 	    00000008 [
 	     00
@@ -129,7 +129,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   6E 74 61 67 65
 	   20 2D 20 4D 65
 	   6E 75 00
- 00000422 31 20 2D 20 49	menuOp1 BYTE "1 - INSERIR VALOR OU FORMULA EM UMA CELULA.",0
+ 00000422 31 20 2D 20 49	menuOp1 BYTE "1 - INSERIR VALOR OU FORMULA EM UMA CELULA.",0 
 	   4E 53 45 52 49
 	   52 20 56 41 4C
 	   4F 52 20 4F 55
@@ -146,16 +146,18 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   55 4D 41 20 43
 	   45 4C 55 4C 41
 	   2E 00
- 00000473 33 20 2D 20 43	menuOp3 BYTE "3 - COPIAR VALOR DE UMA CELULA PARA OUTRA.",0  
+ 00000473 33 20 2D 20 43	menuOp3 BYTE "3 - COPIAR VALOR OU FORMULA DE UMA CELULA PARA OUTRA.",0  
 	   4F 50 49 41 52
 	   20 56 41 4C 4F
-	   52 20 44 45 20
-	   55 4D 41 20 43
-	   45 4C 55 4C 41
-	   20 50 41 52 41
-	   20 4F 55 54 52
-	   41 2E 00
- 0000049E 34 20 2D 20 52	menuOp4 BYTE "4 - RECORTAR  VALOR DE UMA CELULA PARA OUTRA.",0 
+	   52 20 4F 55 20
+	   46 4F 52 4D 55
+	   4C 41 20 44 45
+	   20 55 4D 41 20
+	   43 45 4C 55 4C
+	   41 20 50 41 52
+	   41 20 4F 55 54
+	   52 41 2E 00
+ 000004A9 34 20 2D 20 52	menuOp4 BYTE "4 - RECORTAR  VALOR DE UMA CELULA PARA OUTRA.",0 
 	   45 43 4F 52 54
 	   41 52 20 20 56
 	   41 4C 4F 52 20
@@ -165,35 +167,35 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   41 52 41 20 4F
 	   55 54 52 41 2E
 	   00
- 000004CC 35 20 2D 20 53	menuOp5 BYTE "5 - SELECIONAR UMA CELULA.", 0 
+ 000004D7 35 20 2D 20 53	menuOp5 BYTE "5 - SELECIONAR UMA CELULA.", 0 
 	   45 4C 45 43 49
 	   4F 4E 41 52 20
 	   55 4D 41 20 43
 	   45 4C 55 4C 41
 	   2E 00
- 000004E7 36 20 2D 20 46	menuOp6 BYTE "6 - Funcao MAIOR.",0
+ 000004F2 36 20 2D 20 46	menuOp6 BYTE "6 - Funcao MAIOR.",0
 	   75 6E 63 61 6F
 	   20 4D 41 49 4F
 	   52 2E 00
- 000004F9 37 20 2D 20 46	menuOp7 BYTE "7 - Funcao MENOR.",0 
+ 00000504 37 20 2D 20 46	menuOp7 BYTE "7 - Funcao MENOR.",0 
 	   75 6E 63 61 6F
 	   20 4D 45 4E 4F
 	   52 2E 00
- 0000050B 38 20 2D 20 46	menuOp8 BYTE "8 - Funcao CONT.NUM.",0 
+ 00000516 38 20 2D 20 46	menuOp8 BYTE "8 - Funcao CONT.VALORES.",0 
 	   75 6E 63 61 6F
 	   20 43 4F 4E 54
-	   2E 4E 55 4D 2E
-	   00
- 00000520 39 20 2D 20 41	menuOp9 BYTE "9 - Arrastar Formula.",0 
+	   2E 56 41 4C 4F
+	   52 45 53 2E 00
+ 0000052F 39 20 2D 20 41	menuOp9 BYTE "9 - Arrastar Formula.",0 
 	   72 72 61 73 74
 	   61 72 20 46 6F
 	   72 6D 75 6C 61
 	   2E 00
- 00000536 44 69 67 69 74	menuMsg1 BYTE "Digite uma opcao: ",0
+ 00000545 44 69 67 69 74	menuMsg1 BYTE "Digite uma opcao: ",0
 	   65 20 75 6D 61
 	   20 6F 70 63 61
 	   6F 3A 20 00
- 00000549 45 6E 74 72 61	menuMsgErro BYTE "Entrada Invalida, por favor digite novamente: ", 0 
+ 00000558 45 6E 74 72 61	menuMsgErro BYTE "Entrada Invalida, por favor digite novamente: ", 0 
 	   64 61 20 49 6E
 	   76 61 6C 69 64
 	   61 2C 20 70 6F
@@ -203,7 +205,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   6E 6F 76 61 6D
 	   65 6E 74 65 3A
 	   20 00
- 00000578 44 69 67 69 74	inserirMsg1 BYTE "Digite a coluna no qual deseja inserir: ", 0
+ 00000587 44 69 67 69 74	inserirMsg1 BYTE "Digite a coluna no qual deseja inserir: ", 0
 	   65 20 61 20 63
 	   6F 6C 75 6E 61
 	   20 6E 6F 20 71
@@ -212,7 +214,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   20 69 6E 73 65
 	   72 69 72 3A 20
 	   00
- 000005A1 44 69 67 69 74	inserirMsg2 BYTE "Digite a linha na qual deseja inserir: ", 0 
+ 000005B0 44 69 67 69 74	inserirMsg2 BYTE "Digite a linha na qual deseja inserir: ", 0 
 	   65 20 61 20 6C
 	   69 6E 68 61 20
 	   6E 61 20 71 75
@@ -220,7 +222,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   73 65 6A 61 20
 	   69 6E 73 65 72
 	   69 72 3A 20 00
- 000005C9 44 69 67 69 74	inserirMsg3 BYTE "Digite o tipo de entrada: (1)Int, (2)String, (3)Formula: ", 0
+ 000005D8 44 69 67 69 74	inserirMsg3 BYTE "Digite o tipo de entrada: (1)Int, (2)String, (3)Formula: ", 0
 	   65 20 6F 20 74
 	   69 70 6F 20 64
 	   65 20 65 6E 74
@@ -232,15 +234,15 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   28 33 29 46 6F
 	   72 6D 75 6C 61
 	   3A 20 00
- 00000603 44 69 67 69 74	inserirMsg5 BYTE "Digite a entrada: ", 0 
+ 00000612 44 69 67 69 74	inserirMsg5 BYTE "Digite a entrada: ", 0 
 	   65 20 61 20 65
 	   6E 74 72 61 64
 	   61 3A 20 00
- 00000616 44 69 67 69 74	inserirMsg6 BYTE "Digite o INTEIRO: ",0   
+ 00000625 44 69 67 69 74	inserirMsg6 BYTE "Digite o INTEIRO: ",0   
 	   65 20 6F 20 49
 	   4E 54 45 49 52
 	   4F 3A 20 00
- 00000629 44 69 67 69 74	inserirMsg7 BYTE "Digite uma STRING(Maximo 8 digitos): ",0
+ 00000638 44 69 67 69 74	inserirMsg7 BYTE "Digite uma STRING(Maximo 8 digitos): ",0
 	   65 20 75 6D 61
 	   20 53 54 52 49
 	   4E 47 28 4D 61
@@ -248,14 +250,14 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   38 20 64 69 67
 	   69 74 6F 73 29
 	   3A 20 00
- 0000064F 44 69 67 69 74	inserirMsg8 BYTE "Digite uma FORMULA(Ex: =A4*A5): ",0
+ 0000065E 44 69 67 69 74	inserirMsg8 BYTE "Digite uma FORMULA(Ex: =A4*A5): ",0
 	   65 20 75 6D 61
 	   20 46 4F 52 4D
 	   55 4C 41 28 45
 	   78 3A 20 3D 41
 	   34 2A 41 35 29
 	   3A 20 00
- 00000670 44 69 67 69 74	inserirMsg9 BYTE "Digite o intervalo para calcular o MAIOR, (Ex: M=A2:A6): ",0
+ 0000067F 44 69 67 69 74	inserirMsg9 BYTE "Digite o intervalo para calcular o MAIOR, (Ex: M=A2:A6): ",0
 	   65 20 6F 20 69
 	   6E 74 65 72 76
 	   61 6C 6F 20 70
@@ -267,7 +269,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   3A 20 4D 3D 41
 	   32 3A 41 36 29
 	   3A 20 00
- 000006AA 44 69 67 69 74	inserirMsg10 BYTE "Digite o intervalo para calcular o MENOR, (Ex: N=B4:B8): ",0
+ 000006B9 44 69 67 69 74	inserirMsg10 BYTE "Digite o intervalo para calcular o MENOR, (Ex: N=B4:B8): ",0
 	   65 20 6F 20 69
 	   6E 74 65 72 76
 	   61 6C 6F 20 70
@@ -279,7 +281,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   3A 20 4E 3D 42
 	   34 3A 42 38 29
 	   3A 20 00
- 000006E4 44 69 67 69 74	inserirMsg11 BYTE "Digite o intervalo para CONT.NUM, (Ex: C=E1:B5): ",0
+ 000006F3 44 69 67 69 74	inserirMsg11 BYTE "Digite o intervalo para CONT.NUM, (Ex: C=E1:B5): ",0
 	   65 20 6F 20 69
 	   6E 74 65 72 76
 	   61 6C 6F 20 70
@@ -289,7 +291,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   45 78 3A 20 43
 	   3D 45 31 3A 42
 	   35 29 3A 20 00
- 00000716 44 69 67 69 74	funcaoMsg1	BYTE "Digite o coluna que deseja inserir a funcao: ",0
+ 00000725 44 69 67 69 74	funcaoMsg1	BYTE "Digite o coluna que deseja inserir a funcao: ",0
 	   65 20 6F 20 63
 	   6F 6C 75 6E 61
 	   20 71 75 65 20
@@ -299,7 +301,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   61 20 66 75 6E
 	   63 61 6F 3A 20
 	   00
- 00000744 44 69 67 69 74	funcaoMsg2 BYTE "Digite a linha na qual deseja inserir a funcao: ", 0
+ 00000753 44 69 67 69 74	funcaoMsg2 BYTE "Digite a linha na qual deseja inserir a funcao: ", 0
 	   65 20 61 20 6C
 	   69 6E 68 61 20
 	   6E 61 20 71 75
@@ -309,7 +311,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   69 72 20 61 20
 	   66 75 6E 63 61
 	   6F 3A 20 00
- 00000775 44 69 67 69 74	excluirMsg1 BYTE "Digite a coluna da celula que deseja excluir: ", 0
+ 00000784 44 69 67 69 74	excluirMsg1 BYTE "Digite a coluna da celula que deseja excluir: ", 0
 	   65 20 61 20 63
 	   6F 6C 75 6E 61
 	   20 64 61 20 63
@@ -319,7 +321,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   61 20 65 78 63
 	   6C 75 69 72 3A
 	   20 00
- 000007A4 44 69 67 69 74	excluirMsg2 BYTE "Digite a linha da celula que deseja excluir: ",0
+ 000007B3 44 69 67 69 74	excluirMsg2 BYTE "Digite a linha da celula que deseja excluir: ",0
 	   65 20 61 20 6C
 	   69 6E 68 61 20
 	   64 61 20 63 65
@@ -329,13 +331,13 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   20 65 78 63 6C
 	   75 69 72 3A 20
 	   00
- 000007D2 43 65 6C 75 6C	excluirMsg3 BYTE "Celula excluida com sucesso!", 0   
+ 000007E1 43 65 6C 75 6C	excluirMsg3 BYTE "Celula excluida com sucesso!", 0   
 	   61 20 65 78 63
 	   6C 75 69 64 61
 	   20 63 6F 6D 20
 	   73 75 63 65 73
 	   73 6F 21 00
- 000007EF 44 69 67 69 74	copiarMsg1	BYTE "Digite a coluna da celula que deseja copiar: ",0    
+ 000007FE 44 69 67 69 74	copiarMsg1	BYTE "Digite a coluna da celula que deseja copiar: ",0    
 	   65 20 61 20 63
 	   6F 6C 75 6E 61
 	   20 64 61 20 63
@@ -345,7 +347,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   61 20 63 6F 70
 	   69 61 72 3A 20
 	   00
- 0000081D 44 69 67 69 74	copiarMsg2	BYTE "Digite a linha da celula que deseja copiar: ", 0  
+ 0000082C 44 69 67 69 74	copiarMsg2	BYTE "Digite a linha da celula que deseja copiar: ", 0  
 	   65 20 61 20 6C
 	   69 6E 68 61 20
 	   64 61 20 63 65
@@ -354,7 +356,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   65 73 65 6A 61
 	   20 63 6F 70 69
 	   61 72 3A 20 00
- 0000084A 44 69 67 69 74	copiarMsg3	BYTE "Digite a coluna da celula para onde deseja colar: ",0 
+ 00000859 44 69 67 69 74	copiarMsg3	BYTE "Digite a coluna da celula para onde deseja colar: ",0 
 	   65 20 61 20 63
 	   6F 6C 75 6E 61
 	   20 64 61 20 63
@@ -365,7 +367,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   6A 61 20 63 6F
 	   6C 61 72 3A 20
 	   00
- 0000087D 44 69 67 69 74	copiarMsg4	BYTE "Digite a linha da celula para onde  deseja colar: ", 0
+ 0000088C 44 69 67 69 74	copiarMsg4	BYTE "Digite a linha da celula para onde  deseja colar: ", 0
 	   65 20 61 20 6C
 	   69 6E 68 61 20
 	   64 61 20 63 65
@@ -376,7 +378,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   6A 61 20 63 6F
 	   6C 61 72 3A 20
 	   00
- 000008B0 44 69 67 69 74	recortarMsg1 BYTE "Digite a coluna da celula que deseja recortar: ",0  
+ 000008BF 44 69 67 69 74	recortarMsg1 BYTE "Digite a coluna da celula que deseja recortar: ",0  
 	   65 20 61 20 63
 	   6F 6C 75 6E 61
 	   20 64 61 20 63
@@ -386,7 +388,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   61 20 72 65 63
 	   6F 72 74 61 72
 	   3A 20 00
- 000008E0 44 69 67 69 74	recortarMsg2 BYTE "Digite a linha da celula que deseja recortar: ",0  
+ 000008EF 44 69 67 69 74	recortarMsg2 BYTE "Digite a linha da celula que deseja recortar: ",0  
 	   65 20 61 20 6C
 	   69 6E 68 61 20
 	   64 61 20 63 65
@@ -396,7 +398,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   20 72 65 63 6F
 	   72 74 61 72 3A
 	   20 00
- 0000090F 44 69 67 69 74	recortarMsg3 BYTE "Digite a coluna da celula onde deseja colar: ",0 
+ 0000091E 44 69 67 69 74	recortarMsg3 BYTE "Digite a coluna da celula onde deseja colar: ",0 
 	   65 20 61 20 63
 	   6F 6C 75 6E 61
 	   20 64 61 20 63
@@ -406,7 +408,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   6A 61 20 63 6F
 	   6C 61 72 3A 20
 	   00
- 0000093D 44 69 67 69 74	recortarMsg4 BYTE "Digite a linha da celula onde  deseja colar: ", 0
+ 0000094C 44 69 67 69 74	recortarMsg4 BYTE "Digite a linha da celula onde  deseja colar: ", 0
 	   65 20 61 20 6C
 	   69 6E 68 61 20
 	   64 61 20 63 65
@@ -416,7 +418,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   6A 61 20 63 6F
 	   6C 61 72 3A 20
 	   00
- 0000096B 44 69 67 69 74	selecionarMsg1 BYTE "Digite a coluna da celula que deseja selecionar: ", 0
+ 0000097A 44 69 67 69 74	selecionarMsg1 BYTE "Digite a coluna da celula que deseja selecionar: ", 0
 	   65 20 61 20 63
 	   6F 6C 75 6E 61
 	   20 64 61 20 63
@@ -426,7 +428,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   61 20 73 65 6C
 	   65 63 69 6F 6E
 	   61 72 3A 20 00
- 0000099D 44 69 67 69 74	selecionarMsg2 BYTE "Digite a linha da celula que deseja selecionar: ", 0  
+ 000009AC 44 69 67 69 74	selecionarMsg2 BYTE "Digite a linha da celula que deseja selecionar: ", 0  
 	   65 20 61 20 6C
 	   69 6E 68 61 20
 	   64 61 20 63 65
@@ -436,12 +438,12 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	   20 73 65 6C 65
 	   63 69 6F 6E 61
 	   72 3A 20 00
- 000009CE 42 61 72 72 61	selecionarMsg3 BYTE "Barra de formulas: ",0
+ 000009DD 42 61 72 72 61	selecionarMsg3 BYTE "Barra de formulas: ",0
 	   20 64 65 20 66
 	   6F 72 6D 75 6C
 	   61 73 3A 20 00
 				  
- 000009E2 00 00000000		areaTransferencia Cell <> ;AREA DE TRANSFERENCIA   
+ 000009F1 00 00000000		areaTransferencia Cell <> ;AREA DE TRANSFERENCIA   
 	   00000008 [
 	    00
 	   ] 00
@@ -449,7 +451,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 	    00
 	   ] 00
 
- 000009F9 00000000		formulaEntrada DWORD ?  
+ 00000A08 00000000		formulaEntrada DWORD ?  
 				 
  00000000			.code   
 				INCLUDE InterfacePlanilha.asm 
@@ -655,37 +657,37 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
  00000153  E8 00000000 E      C 	call Crlf
 			      C 
 			      C 	;menuOp4 BYTE "4 - RECORTAR VALOR DE UMA CELULA PARA OUTRA.",0 
- 00000158  BA 0000049E R      C 	mov edx, OFFSET menuOp4
+ 00000158  BA 000004A9 R      C 	mov edx, OFFSET menuOp4
  0000015D  E8 00000000 E      C 	call WriteString
  00000162  E8 00000000 E      C 	call Crlf
 			      C 
 			      C 	;menuOp5 BYTE "5 - SELECIONAR UMA CELULA.", 0
- 00000167  BA 000004CC R      C 	mov edx, OFFSET menuOp5
+ 00000167  BA 000004D7 R      C 	mov edx, OFFSET menuOp5
  0000016C  E8 00000000 E      C 	call WriteString
  00000171  E8 00000000 E      C 	call Crlf
 			      C 
 			      C 	;menuOp5 BYTE "6 - FUNCAO MAIOR.",0
- 00000176  BA 000004E7 R      C 	mov edx, OFFSET menuOp6
+ 00000176  BA 000004F2 R      C 	mov edx, OFFSET menuOp6
  0000017B  E8 00000000 E      C 	call WriteString
  00000180  E8 00000000 E      C 	call Crlf
 			      C 
 			      C 	;menuOp6 BYTE "7 - FUNCAO MENOr.",0  
- 00000185  BA 000004F9 R      C 	mov edx, OFFSET menuOp7
+ 00000185  BA 00000504 R      C 	mov edx, OFFSET menuOp7
  0000018A  E8 00000000 E      C 	call WriteString
  0000018F  E8 00000000 E      C 	call Crlf
 			      C 
 			      C 	;menuOp6 BYTE "8 - FUNCAO CONT.NUM.",0  
- 00000194  BA 0000050B R      C 	mov edx, OFFSET menuOp8
+ 00000194  BA 00000516 R      C 	mov edx, OFFSET menuOp8
  00000199  E8 00000000 E      C 	call WriteString
  0000019E  E8 00000000 E      C 	call Crlf
 			      C 
 			      C 	;menuOp6 BYTE "7 - COPIAR FORMULA .",0  
- 000001A3  BA 00000520 R      C 	mov edx, OFFSET menuOp9
+ 000001A3  BA 0000052F R      C 	mov edx, OFFSET menuOp9
  000001A8  E8 00000000 E      C 	call WriteString
  000001AD  E8 00000000 E      C 	call Crlf
 			      C 	
 			      C 	;menuMsg1 BYTE "Digite uma opcao: ",0
- 000001B2  BA 00000536 R      C 	mov edx, OFFSET menuMsg1
+ 000001B2  BA 00000545 R      C 	mov edx, OFFSET menuMsg1
  000001B7  E8 00000000 E      C 	call WriteString 
 			      C 	
 			      C 	;Recendo uma entrada do usuário
@@ -733,7 +735,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
  000001F3  74 0C	      C 	je EntradaValida
 			      C 
  000001F5		      C EntradaInvalida:
- 000001F5  BA 00000549 R      C     mov  edx,OFFSET menuMsgErro
+ 000001F5  BA 00000558 R      C     mov  edx,OFFSET menuMsgErro
  000001FA  E8 00000000 E      C     call WriteString
  000001FF  EB BB	      C     jmp  LeituraOpMenu
 			      C 
@@ -754,13 +756,13 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
  0000020A  B8 00000000	      C 	mov eax,0
 			      C 	
 			      C 	;funcaoMsg1 BYTE "Digite a coluna no qual deseja inserir a funcao: ", 0
- 0000020F  BA 00000716 R      C 	mov edx, OFFSET funcaoMsg1
+ 0000020F  BA 00000725 R      C 	mov edx, OFFSET funcaoMsg1
  00000214  E8 00000000 E      C 	call WriteString
  00000219  E8 00000000 E      C 	call ReadHex	 ; EAX = COLUNA
  0000021E  50		      C 	push eax		 ; Posição da Coluna na Pilha
 			      C 
 			      C 	;funcaoMsg2 BYTE "Digite a linha na qual deseja inserir a funca: ", 0
- 0000021F  BA 00000744 R      C 	mov edx, OFFSET funcaoMsg2
+ 0000021F  BA 00000753 R      C 	mov edx, OFFSET funcaoMsg2
  00000224  E8 00000000 E      C 	call WriteString
  00000229  E8 00000000 E      C 	call ReadHex	 ;EAX = LINHA
 			      C 	
@@ -768,10 +770,10 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 
 			      C 	;Preenchendo célula Aux com os dados do usuário
 			      C 	;Utilizando o tipo de entrada preencher a célula
- 0000022F  BF 000009E2 R      C 	mov edi, OFFSET areaTransferencia
+ 0000022F  BF 000009F1 R      C 	mov edi, OFFSET areaTransferencia
 			      C 	
 			      C 	;inserirMsg10 BYTE "Digite o intervalo para calcular o MENOR, (Ex: M=B4:B8): ",0
- 00000234  BA 000006AA R      C 	mov edx, OFFSET inserirMsg10
+ 00000234  BA 000006B9 R      C 	mov edx, OFFSET inserirMsg10
  00000239  E8 00000000 E      C 	call WriteString
 			      C 	
 			      C 	;Inserindo Formula
@@ -805,13 +807,13 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
  00000262  B8 00000000	      C 	mov eax,0
 			      C 	
 			      C 	;funcaoMsg1 BYTE "Digite a coluna no qual deseja inserir: ", 0
- 00000267  BA 00000716 R      C 	mov edx, OFFSET funcaoMsg1
+ 00000267  BA 00000725 R      C 	mov edx, OFFSET funcaoMsg1
  0000026C  E8 00000000 E      C 	call WriteString
  00000271  E8 00000000 E      C 	call ReadHex	 ; EAX = COLUNA
  00000276  50		      C 	push eax		 ; Posição da Coluna na Pilha
 			      C 
 			      C 	;funcaoMsg2 BYTE "Digite a linha na qual deseja inserir: ", 0
- 00000277  BA 00000744 R      C 	mov edx, OFFSET funcaoMsg2
+ 00000277  BA 00000753 R      C 	mov edx, OFFSET funcaoMsg2
  0000027C  E8 00000000 E      C 	call WriteString
  00000281  E8 00000000 E      C 	call ReadHex	 ;EAX = LINHA
 			      C 	
@@ -819,10 +821,10 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 
 			      C 	;Preenchendo célula Aux com os dados do usuário
 			      C 	;Utilizando o tipo de entrada preencher a célula
- 00000287  BF 000009E2 R      C 	mov edi, OFFSET areaTransferencia
+ 00000287  BF 000009F1 R      C 	mov edi, OFFSET areaTransferencia
 			      C 	
 			      C 	;inserirMsg9 BYTE "Digite o intervalo para calcular o MODO "Ex: =MODO(A2:A4)": ",0
- 0000028C  BA 00000670 R      C 	mov edx, OFFSET inserirMsg9
+ 0000028C  BA 0000067F R      C 	mov edx, OFFSET inserirMsg9
  00000291  E8 00000000 E      C 	call WriteString
 			      C 	
 			      C 	;Inserindo Formula
@@ -855,13 +857,13 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
  000002BA  B8 00000000	      C 	mov eax,0
 			      C 	
 			      C 	;funcaoMsg1 BYTE "Digite a coluna no qual deseja inserir a funcao: ", 0
- 000002BF  BA 00000716 R      C 	mov edx, OFFSET funcaoMsg1
+ 000002BF  BA 00000725 R      C 	mov edx, OFFSET funcaoMsg1
  000002C4  E8 00000000 E      C 	call WriteString
  000002C9  E8 00000000 E      C 	call ReadHex	 ; EAX = COLUNA
  000002CE  50		      C 	push eax		 ; Posição da Coluna na Pilha
 			      C 
 			      C 	;funcaoMsg2 BYTE "Digite a linha na qual deseja inserir a funcao: ", 0
- 000002CF  BA 00000744 R      C 	mov edx, OFFSET funcaoMsg2
+ 000002CF  BA 00000753 R      C 	mov edx, OFFSET funcaoMsg2
  000002D4  E8 00000000 E      C 	call WriteString
  000002D9  E8 00000000 E      C 	call ReadHex	 ;EAX = LINHA
 			      C 	
@@ -869,10 +871,10 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 
 			      C 	;Preenchendo célula Aux com os dados do usuário
 			      C 	;Utilizando o tipo de entrada preencher a célula
- 000002DF  BF 000009E2 R      C 	mov edi, OFFSET areaTransferencia
+ 000002DF  BF 000009F1 R      C 	mov edi, OFFSET areaTransferencia
 			      C 	
 			      C 	;inserirMsg11 BYTE "Digite o intervalo para CONT.NUM, (Ex: C=E1:B5): ",0
- 000002E4  BA 000006E4 R      C 	mov edx, OFFSET inserirMsg11
+ 000002E4  BA 000006F3 R      C 	mov edx, OFFSET inserirMsg11
  000002E9  E8 00000000 E      C 	call WriteString
 			      C 	
 			      C 	;Inserindo Formula
@@ -914,14 +916,14 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 
 			      C 	;inserirMsg1 BYTE "Digite a coluna no qual deseja inserir: ", 0
 			      C 
- 00000317  BA 00000578 R      C 	mov edx, OFFSET inserirMsg1
+ 00000317  BA 00000587 R      C 	mov edx, OFFSET inserirMsg1
  0000031C  E8 00000000 E      C 	call WriteString
  00000321  E8 00000000 E      C 	call ReadHex	 ; EAX = COLUNA
  00000326  50		      C 	push eax		 ; Posição da Coluna na Pilha
 			      C 
 			      C 	;inserirMsg2 BYTE "Digite a linha na qual deseja inserir: ", 0
 			      C 
- 00000327  BA 000005A1 R      C 	mov edx, OFFSET inserirMsg2
+ 00000327  BA 000005B0 R      C 	mov edx, OFFSET inserirMsg2
  0000032C  E8 00000000 E      C 	call WriteString
  00000331  E8 00000000 E      C 	call ReadHex	 ;EAX = LINHA
 			      C 	
@@ -929,13 +931,13 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 
 			      C 	;inserirMsg3 BYTE "Digite o tipo de entrada: (1)Int, (2)String, (3)Formula: ", 0
 			      C 
- 00000337  BA 000005C9 R      C 	mov edx, OFFSET inserirMsg3
+ 00000337  BA 000005D8 R      C 	mov edx, OFFSET inserirMsg3
  0000033C  E8 00000000 E      C 	call WriteString
  00000341  E8 00000000 E      C 	call ReadHex	 ;EAX = Tipo de Entrada
 			      C 
 			      C 	;Preenchendo célula Aux com os dados do usuário
 			      C 	;Utilizando o tipo de entrada preencher a célula
- 00000346  BF 000009E2 R      C 	mov edi, OFFSET areaTransferencia
+ 00000346  BF 000009F1 R      C 	mov edi, OFFSET areaTransferencia
 			      C 	
  0000034B  BB 00000001	      C 	mov ebx, 1
  00000350  3B D8	      C 	cmp ebx, eax
@@ -949,7 +951,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 
  00000366		      C InsereUserInt: 
 			      C 	;inserirMsg6 BYTE "Digite o INTEIRO: ",0
- 00000366  BA 00000616 R      C 	mov edx, OFFSET inserirMsg6
+ 00000366  BA 00000625 R      C 	mov edx, OFFSET inserirMsg6
  0000036B  E8 00000000 E      C 	call WriteString
  00000370  E8 00000000 E      C 	call ReadInt	 ;EAX = ENTRADA
  00000375  89 47 01	      C 	mov (Cell  PTR[edi]).numInt, eax
@@ -960,7 +962,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 
  0000037F		      C InsereUserString:
 			      C 	;inserirMsg7 BYTE "Digite uma STRING(Maximo 8 digitos): ",0
- 0000037F  BA 00000629 R      C 	mov edx, OFFSET inserirMsg7
+ 0000037F  BA 00000638 R      C 	mov edx, OFFSET inserirMsg7
  00000384  E8 00000000 E      C 	call WriteString
 			      C 	
 			      C 	;Inserindo String
@@ -972,7 +974,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 
  0000039B		      C InsereUserFormula:
 			      C 	;inserirMsg8 BYTE "Digite uma FORMULA(Ex: =A4*A5): ",0
- 0000039B  BA 0000064F R      C 	mov edx, OFFSET inserirMsg8
+ 0000039B  BA 0000065E R      C 	mov edx, OFFSET inserirMsg8
  000003A0  E8 00000000 E      C 	call WriteString
 			      C 	
 			      C 	;Inserindo Formula
@@ -1018,12 +1020,12 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
  000003D1  53		      C 	push ebx
 			      C 	;Recebendo os valores do usuário
 			      C 
- 000003D2  BA 00000775 R      C 	mov edx, OFFSET excluirMsg1
+ 000003D2  BA 00000784 R      C 	mov edx, OFFSET excluirMsg1
  000003D7  E8 00000000 E      C 	call WriteString
  000003DC  E8 00000000 E      C 	call ReadHex	;EAX = COLUNA
  000003E1  50		      C 	push eax		;Coluna na pilha
 			      C 
- 000003E2  BA 000007A4 R      C 	mov edx, OFFSET excluirMsg2
+ 000003E2  BA 000007B3 R      C 	mov edx, OFFSET excluirMsg2
  000003E7  E8 00000000 E      C 	call WriteString
  000003EC  E8 00000000 E      C 	call ReadHex	;EAX = Linha
  000003F1  50		      C 	push eax		;Linha na PILHA
@@ -1060,14 +1062,14 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 
 			      C 	;copiarMsg1	BYTE "Digite a coluna da celula que deseja copiar: ",0
 			      C 
- 0000040D  BA 000007EF R      C 	mov edx, OFFSET copiarMsg1
+ 0000040D  BA 000007FE R      C 	mov edx, OFFSET copiarMsg1
  00000412  E8 00000000 E      C 	call WriteString
  00000417  E8 00000000 E      C 	call ReadHex	 ; EAX = COLUNA
  0000041C  8B D8	      C 	mov ebx, eax	 ; EBX recebe a COLUNA
 			      C 
 			      C 	;copiarMsg2	BYTE "Digite a linha da celula que deseja copiar: ", 0
 			      C 
- 0000041E  BA 0000081D R      C 	mov edx, OFFSET copiarMsg2
+ 0000041E  BA 0000082C R      C 	mov edx, OFFSET copiarMsg2
  00000423  E8 00000000 E      C 	call WriteString
  00000428  E8 00000000 E      C 	call ReadHex	 ;EAX = LINHA
 			      C 
@@ -1077,14 +1079,14 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 
 			      C 	;copiarMsg3	BYTE "Digite a coluna da celula para onde deseja colar: ",0
 			      C 
- 0000043C  BA 0000084A R      C 	mov edx, OFFSET copiarMsg3
+ 0000043C  BA 00000859 R      C 	mov edx, OFFSET copiarMsg3
  00000441  E8 00000000 E      C 	call WriteString
  00000446  E8 00000000 E      C 	call ReadHex	 ; EAX = COLUNA
  0000044B  8B D8	      C 	mov ebx, eax	 ; EBX recebe a COLUNA
 			      C 
 			      C 	;copiarMsg4	BYTE "Digite a linha da celula para onde  deseja colar: ", 0
 			      C 
- 0000044D  BA 0000087D R      C 	mov edx, OFFSET copiarMsg4
+ 0000044D  BA 0000088C R      C 	mov edx, OFFSET copiarMsg4
  00000452  E8 00000000 E      C 	call WriteString
  00000457  E8 00000000 E      C 	call ReadHex	 ;EAX = LINHA
 			      C 
@@ -1115,14 +1117,14 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 
 			      C 	;copiarMsg1	BYTE "Digite a coluna da celula que deseja copiar: ",0
 			      C 
- 00000479  BA 000007EF R      C 	mov edx, OFFSET copiarMsg1
+ 00000479  BA 000007FE R      C 	mov edx, OFFSET copiarMsg1
  0000047E  E8 00000000 E      C 	call WriteString
  00000483  E8 00000000 E      C 	call ReadHex	 ; EAX = COLUNA
  00000488  8B D8	      C 	mov ebx, eax	 ; EBX recebe a COLUNA
 			      C 
 			      C 	;copiarMsg2	BYTE "Digite a linha da celula que deseja copiar: ", 0
 			      C 
- 0000048A  BA 0000081D R      C 	mov edx, OFFSET copiarMsg2
+ 0000048A  BA 0000082C R      C 	mov edx, OFFSET copiarMsg2
  0000048F  E8 00000000 E      C 	call WriteString
  00000494  E8 00000000 E      C 	call ReadHex	 ;EAX = LINHA
 			      C 
@@ -1132,14 +1134,14 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 
 			      C 	;copiarMsg3	BYTE "Digite a coluna da celula para onde deseja colar: ",0
 			      C 
- 000004A8  BA 0000084A R      C 	mov edx, OFFSET copiarMsg3
+ 000004A8  BA 00000859 R      C 	mov edx, OFFSET copiarMsg3
  000004AD  E8 00000000 E      C 	call WriteString
  000004B2  E8 00000000 E      C 	call ReadHex	 ; EAX = COLUNA
  000004B7  8B D8	      C 	mov ebx, eax	 ; EBX recebe a COLUNA
 			      C 
 			      C 	;copiarMsg4	BYTE "Digite a linha da celula para onde  deseja colar: ", 0
 			      C 
- 000004B9  BA 0000087D R      C 	mov edx, OFFSET copiarMsg4
+ 000004B9  BA 0000088C R      C 	mov edx, OFFSET copiarMsg4
  000004BE  E8 00000000 E      C 	call WriteString
  000004C3  E8 00000000 E      C 	call ReadHex	 ;EAX = LINHA
 			      C 
@@ -1148,7 +1150,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
  000004C9  53		      C 	push ebx
  000004CA  57		      C 	push edi
  000004CB  80 C3 37	      C 	add bl, 37h
- 000004CE  BF 000009E2 R      C 	mov edi, OFFSET areaTransferencia
+ 000004CE  BF 000009F1 R      C 	mov edi, OFFSET areaTransferencia
  000004D3  8D 57 0E	      C 	lea edx,(CELL PTR[edi]).formula
  000004D6  88 5A 01	      C 	mov [edx+1], bl
  000004D9  88 5A 04	      C 	mov [edx+4], bl
@@ -1184,14 +1186,14 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 
 			      C 	;recortarMsg1 BYTE "Digite a coluna da celula que deseja recortar: ",0
 			      C 
- 000004FC  BA 000008B0 R      C 	mov edx, OFFSET recortarMsg1
+ 000004FC  BA 000008BF R      C 	mov edx, OFFSET recortarMsg1
  00000501  E8 00000000 E      C 	call WriteString
  00000506  E8 00000000 E      C 	call ReadHex	 ; EAX = COLUNA
  0000050B  8B D8	      C 	mov ebx, eax	 ; EBX recebe a COLUNA
 			      C 
 			      C 	;recortarMsg2 BYTE "Digite a linha da celula que deseja recortar: ",0
 			      C 
- 0000050D  BA 000008E0 R      C 	mov edx, OFFSET recortarMsg2
+ 0000050D  BA 000008EF R      C 	mov edx, OFFSET recortarMsg2
  00000512  E8 00000000 E      C 	call WriteString
  00000517  E8 00000000 E      C 	call ReadHex	 ;EAX = LINHA
 			      C 
@@ -1201,14 +1203,14 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
  0000052B  E8 00000113	      C 	call ExcluirCelula
 			      C 	
 			      C 	;recortarMsg3 BYTE "Digite a coluna da celula onde deseja colar: ",0
- 00000530  BA 0000090F R      C 	mov edx, OFFSET recortarMsg3
+ 00000530  BA 0000091E R      C 	mov edx, OFFSET recortarMsg3
  00000535  E8 00000000 E      C 	call WriteString
  0000053A  E8 00000000 E      C 	call ReadHex	 ; EAX = COLUNA
  0000053F  8B D8	      C 	mov ebx, eax	 ; EBX recebe a COLUNA
 			      C 
 			      C 	;copiarMsg4	BYTE "Digite a linha da celula para onde  deseja colar: ", 0
 			      C 
- 00000541  BA 0000093D R      C 	mov edx, OFFSET recortarMsg4
+ 00000541  BA 0000094C R      C 	mov edx, OFFSET recortarMsg4
  00000546  E8 00000000 E      C 	call WriteString
  0000054B  E8 00000000 E      C 	call ReadHex	 ;EAX = LINHA
 			      C 
@@ -1237,14 +1239,14 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 
 			      C 	;selecionarMsg1 BYTE "Digite a coluna da celula que deseja selecionar: ", 0
 			      C 
- 00000568  BA 0000096B R      C 	mov edx, OFFSET selecionarMsg1
+ 00000568  BA 0000097A R      C 	mov edx, OFFSET selecionarMsg1
  0000056D  E8 00000000 E      C 	call WriteString
  00000572  E8 00000000 E      C 	call ReadHex	 ; EAX = COLUNA
  00000577  8B D8	      C 	mov ebx, eax	 ; EBX recebe a COLUNA
 			      C 
 			      C 	;selecionarMsg2 BYTE "Digite a linha da celula que deseja selecionar: ", 0
 			      C 
- 00000579  BA 0000099D R      C 	mov edx, OFFSET selecionarMsg2
+ 00000579  BA 000009AC R      C 	mov edx, OFFSET selecionarMsg2
  0000057E  E8 00000000 E      C 	call WriteString
  00000583  E8 00000000 E      C 	call ReadHex	 ;EAX = LINHA
 			      C 
@@ -1253,7 +1255,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 
 			      C 	;selecionarMsg3 BYTE "Barra de formulas: ",0
 			      C 	
- 00000592  BA 000009CE R      C 	mov edx, OFFSET selecionarMsg3
+ 00000592  BA 000009DD R      C 	mov edx, OFFSET selecionarMsg3
  00000597  E8 00000000 E      C 	call Crlf
  0000059C  E8 00000000 E      C 	call WriteString
 			      C 
@@ -1450,7 +1452,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
  0000068A  57		      C 	push edi
  0000068B  52		      C 	push edx
 			      C 	
- 0000068C  BA 000009E2 R      C 	mov edx, OFFSET areaTransferencia
+ 0000068C  BA 000009F1 R      C 	mov edx, OFFSET areaTransferencia
  00000691  8B FE	      C 	mov edi, esi ;ORIGEM (Recebida em ESI)
  00000693  56		      C 	push esi
  00000694  8B F2	      C 	mov esi, edx ;DESTINO
@@ -1477,7 +1479,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 	;RECEBE: Endereco de Destino em ESI
  0000069F  57		      C 	push edi
 			      C 
- 000006A0  BF 000009E2 R      C 	mov edi, OFFSET areaTransferencia
+ 000006A0  BF 000009F1 R      C 	mov edi, OFFSET areaTransferencia
  000006A5  E8 FFFFFF09	      C 	call InserirCelula
 			      C 
  000006AA  5F		      C 	pop edi
@@ -1694,7 +1696,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
 			      C 	
 			      C 
 			      C 	;FORMULA
- 00000847  E9 0000018B	      C 	jmp FORMULA
+ 00000847  E9 0000018F	      C 	jmp FORMULA
 			      C 
  0000084C		      C MAIOR:
  0000084C  BB 00000000	      C 	mov ebx, 0
@@ -1742,7 +1744,7 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
  000008A7  5F		      C 	pop edi
  000008A8  89 4F 01	      C 	mov (Cell  PTR[edi]).numInt, ecx
  000008AB  61		      C 	popad
- 000008AC  E9 000001C6	      C 	jmp S1
+ 000008AC  E9 000001CA	      C 	jmp S1
 			      C 
  000008B1		      C MENOR:
  000008B1  BB 00000000	      C 	mov ebx, 0
@@ -1821,13 +1823,13 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
  0000094D  C7 47 01	      C 	mov (Cell  PTR[edi]).numInt, 0
 	   00000000
  00000954  61		      C 	popad
- 00000955  E9 0000011D	      C 	jmp S1
+ 00000955  E9 00000121	      C 	jmp S1
 			      C 
  0000095A		      C SALVA:
  0000095A  5F		      C 	pop edi
  0000095B  89 4F 01	      C 	mov (Cell  PTR[edi]).numInt, ecx
  0000095E  61		      C 	popad
- 0000095F  E9 00000113	      C 	jmp S1
+ 0000095F  E9 00000117	      C 	jmp S1
 			      C 
 			      C ;;CONT.NUM
  00000964		      C 	CONT: 
@@ -1869,117 +1871,119 @@ Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
  000009B7  8A 03	      C 	mov al, [ebx]
 			      C 
  000009B9  3C 01	      C 	cmp al, 1
- 000009BB  74 06	      C 	je INCR
+ 000009BB  74 0A	      C 	je INCR
  000009BD  3C 03	      C 	cmp al, 3
- 000009BF  74 02	      C 	je INCR
- 000009C1  EB 01	      C 	jmp SALT
- 000009C3		      C INCR:
- 000009C3  41		      C 	inc ecx
- 000009C4		      C SALT:
- 000009C4  3B F2	      C 	cmp esi, edx
- 000009C6  74 05	      C 	je FIMC
- 000009C8  83 C2 73	      C 	add edx, (TYPE CELL)*5	
- 000009CB  EB E3	      C 	jmp CONT1
- 000009CD		      C FIMC:	
+ 000009BF  74 06	      C 	je INCR
+ 000009C1  3C 02	      C 	cmp al, 2
+ 000009C3  74 02	      C 	je INCR
+ 000009C5  EB 01	      C 	jmp SALT
+ 000009C7		      C INCR:
+ 000009C7  41		      C 	inc ecx
+ 000009C8		      C SALT:
+ 000009C8  3B F2	      C 	cmp esi, edx
+ 000009CA  74 05	      C 	je FIMC
+ 000009CC  83 C2 73	      C 	add edx, (TYPE CELL)*5	
+ 000009CF  EB DF	      C 	jmp CONT1
+ 000009D1		      C FIMC:	
 			      C 	;;FIM
- 000009CD  5F		      C 	pop edi
- 000009CE  89 4F 01	      C 	mov (Cell  PTR[edi]).numInt, ecx
- 000009D1  61		      C 	popad
- 000009D2  E9 000000A0	      C 	jmp S1
+ 000009D1  5F		      C 	pop edi
+ 000009D2  89 4F 01	      C 	mov (Cell  PTR[edi]).numInt, ecx
+ 000009D5  61		      C 	popad
+ 000009D6  E9 000000A0	      C 	jmp S1
 			      C 
 			      C ;;CONT.NUM
 			      C 	
- 000009D7		      C FORMULA:
- 000009D7  5F		      C 	pop edi
- 000009D8  61		      C 	popad
- 000009D9  BB 00000000	      C 	mov ebx, 0
- 000009DE  8A 5A 01	      C 	mov bl, [edx+1] ; Coluna do primeiro membro
- 000009E1  80 EB 37	      C 	sub bl, 37h
- 000009E4  B8 00000000	      C 	mov eax, 0
- 000009E9  8A 42 02	      C 	mov al, [edx+2] ; Linha do primeiro membro
- 000009EC  2C 30	      C 	sub al, 30h
+ 000009DB		      C FORMULA:
+ 000009DB  5F		      C 	pop edi
+ 000009DC  61		      C 	popad
+ 000009DD  BB 00000000	      C 	mov ebx, 0
+ 000009E2  8A 5A 01	      C 	mov bl, [edx+1] ; Coluna do primeiro membro
+ 000009E5  80 EB 37	      C 	sub bl, 37h
+ 000009E8  B8 00000000	      C 	mov eax, 0
+ 000009ED  8A 42 02	      C 	mov al, [edx+2] ; Linha do primeiro membro
+ 000009F0  2C 30	      C 	sub al, 30h
 			      C 
- 000009EE  BE 00000000 R      C 	mov esi, OFFSET Linha1
- 000009F3  E8 FFFFFC0F	      C 	call EnderecoCelula
+ 000009F2  BE 00000000 R      C 	mov esi, OFFSET Linha1
+ 000009F7  E8 FFFFFC0B	      C 	call EnderecoCelula
 			      C 
- 000009F8  8D 76 01	      C 	lea esi, (Cell  PTR[esi]).numInt
- 000009FB  FF 36	      C 	push [esi]		; Operando 1 na pilha
+ 000009FC  8D 76 01	      C 	lea esi, (Cell  PTR[esi]).numInt
+ 000009FF  FF 36	      C 	push [esi]		; Operando 1 na pilha
 			      C 
- 000009FD  BB 00000000	      C 	mov ebx, 0
- 00000A02  8A 5A 04	      C 	mov bl, [edx+4] ; Coluna do primeiro membro
- 00000A05  80 EB 37	      C 	sub bl, 37h
- 00000A08  B8 00000000	      C 	mov eax, 0
- 00000A0D  8A 42 05	      C 	mov al, [edx+5] ; Linha do primeiro membro
- 00000A10  2C 30	      C 	sub al, 30h
+ 00000A01  BB 00000000	      C 	mov ebx, 0
+ 00000A06  8A 5A 04	      C 	mov bl, [edx+4] ; Coluna do primeiro membro
+ 00000A09  80 EB 37	      C 	sub bl, 37h
+ 00000A0C  B8 00000000	      C 	mov eax, 0
+ 00000A11  8A 42 05	      C 	mov al, [edx+5] ; Linha do primeiro membro
+ 00000A14  2C 30	      C 	sub al, 30h
 			      C 
- 00000A12  BE 00000000 R      C 	mov esi, OFFSET Linha1
- 00000A17  E8 FFFFFBEB	      C 	call EnderecoCelula
+ 00000A16  BE 00000000 R      C 	mov esi, OFFSET Linha1
+ 00000A1B  E8 FFFFFBE7	      C 	call EnderecoCelula
 			      C 
- 00000A1C  8D 76 01	      C 	lea esi, (Cell  PTR[esi]).numInt
- 00000A1F  FF 36	      C 	push [esi]		; Operando 2 na pilha
+ 00000A20  8D 76 01	      C 	lea esi, (Cell  PTR[esi]).numInt
+ 00000A23  FF 36	      C 	push [esi]		; Operando 2 na pilha
 			      C 
 			      C 	;;FORMULA 
- 00000A21  B8 00000000	      C 	mov eax, 0
- 00000A26  8A 42 02	      C 	mov al, [edx+2] ;OPERADOR
+ 00000A25  B8 00000000	      C 	mov eax, 0
+ 00000A2A  8A 42 02	      C 	mov al, [edx+2] ;OPERADOR
 			      C 
- 00000A29  5B		      C 	pop ebx ; -> Primeiro da Formula
- 00000A2A  58		      C 	pop eax ; -> Segunda da Formula
+ 00000A2D  5B		      C 	pop ebx ; -> Primeiro da Formula
+ 00000A2E  58		      C 	pop eax ; -> Segunda da Formula
 			      C 
 			      C 	;Verificando qual operação será feita
- 00000A2B  B9 00000000	      C 	mov ecx, 0
- 00000A30  8A 4A 03	      C 	mov cl, [edx+3] ; OPERADOR
- 00000A33  80 F9 2A	      C 	cmp cl, 2Ah
- 00000A36  74 11	      C 	je MULTI
- 00000A38  80 F9 2B	      C 	cmp  cl, 2Bh
- 00000A3B  74 24	      C 	je SOMA
- 00000A3D  80 F9 2F	      C 	cmp cl, 2Fh
- 00000A40  74 0E	      C 	je DIVISAO
- 00000A42  80 F9 2D	      C 	cmp cl, 2Dh
- 00000A45  74 21	      C 	je SUBE
- 00000A47  EB 26	      C 	jmp NOPE
- 00000A49		      C MULTI:
- 00000A49  F7 E3	      C 	mul ebx
- 00000A4B  89 47 01	      C 	mov (Cell  PTR[edi]).numInt, eax
- 00000A4E  EB 27	      C 	jmp S1
- 00000A50		      C DIVISAO:
- 00000A50  83 FB 00	      C 	cmp ebx, 0
- 00000A53  74 1A	      C 	je NOPE
- 00000A55  BA 00000000	      C 	mov edx, 0
- 00000A5A  F7 F3	      C 	div ebx
- 00000A5C  89 47 01	      C 	mov (Cell  PTR[edi]).numInt, eax
- 00000A5F  EB 16	      C 	jmp S1
- 00000A61		      C SOMA:
- 00000A61  03 C3	      C 	add eax, ebx
- 00000A63  89 47 01	      C 	mov (Cell  PTR[edi]).numInt, eax
- 00000A66  EB 0F	      C 	jmp S1
- 00000A68		      C SUBE:
- 00000A68  2B C3	      C 	sub eax, ebx
- 00000A6A  89 47 01	      C 	mov (Cell  PTR[edi]).numInt, eax
- 00000A6D  EB 08	      C 	jmp S1
- 00000A6F		      C NOPE:
- 00000A6F  B8 00000000	      C 	mov eax, 0
- 00000A74  89 47 01	      C 	mov (Cell  PTR[edi]).numInt, eax
- 00000A77		      C S1:
+ 00000A2F  B9 00000000	      C 	mov ecx, 0
+ 00000A34  8A 4A 03	      C 	mov cl, [edx+3] ; OPERADOR
+ 00000A37  80 F9 2A	      C 	cmp cl, 2Ah
+ 00000A3A  74 11	      C 	je MULTI
+ 00000A3C  80 F9 2B	      C 	cmp  cl, 2Bh
+ 00000A3F  74 24	      C 	je SOMA
+ 00000A41  80 F9 2F	      C 	cmp cl, 2Fh
+ 00000A44  74 0E	      C 	je DIVISAO
+ 00000A46  80 F9 2D	      C 	cmp cl, 2Dh
+ 00000A49  74 21	      C 	je SUBE
+ 00000A4B  EB 26	      C 	jmp NOPE
+ 00000A4D		      C MULTI:
+ 00000A4D  F7 E3	      C 	mul ebx
+ 00000A4F  89 47 01	      C 	mov (Cell  PTR[edi]).numInt, eax
+ 00000A52  EB 27	      C 	jmp S1
+ 00000A54		      C DIVISAO:
+ 00000A54  83 FB 00	      C 	cmp ebx, 0
+ 00000A57  74 1A	      C 	je NOPE
+ 00000A59  BA 00000000	      C 	mov edx, 0
+ 00000A5E  F7 F3	      C 	div ebx
+ 00000A60  89 47 01	      C 	mov (Cell  PTR[edi]).numInt, eax
+ 00000A63  EB 16	      C 	jmp S1
+ 00000A65		      C SOMA:
+ 00000A65  03 C3	      C 	add eax, ebx
+ 00000A67  89 47 01	      C 	mov (Cell  PTR[edi]).numInt, eax
+ 00000A6A  EB 0F	      C 	jmp S1
+ 00000A6C		      C SUBE:
+ 00000A6C  2B C3	      C 	sub eax, ebx
+ 00000A6E  89 47 01	      C 	mov (Cell  PTR[edi]).numInt, eax
+ 00000A71  EB 08	      C 	jmp S1
+ 00000A73		      C NOPE:
+ 00000A73  B8 00000000	      C 	mov eax, 0
+ 00000A78  89 47 01	      C 	mov (Cell  PTR[edi]).numInt, eax
+ 00000A7B		      C S1:
 			      C 	;Recuperando valroes dos registradores
- 00000A77  59		      C 	pop ecx
- 00000A78  5B		      C 	pop ebx
- 00000A79  58		      C 	pop eax
- 00000A7A  5E		      C 	pop esi
- 00000A7B  5A		      C 	pop edx
+ 00000A7B  59		      C 	pop ecx
+ 00000A7C  5B		      C 	pop ebx
+ 00000A7D  58		      C 	pop eax
+ 00000A7E  5E		      C 	pop esi
+ 00000A7F  5A		      C 	pop edx
 			      C 
- 00000A7C  C3		      C 	ret
- 00000A7D		      C controladorFormula ENDP
+ 00000A80  C3		      C 	ret
+ 00000A81		      C controladorFormula ENDP
 			      C 
 				 
- 00000A7D			main PROC
+ 00000A81			main PROC
 					 
- 00000A7D  E8 FFFFFC2A			call controladorPrincipal  
+ 00000A81  E8 FFFFFC26			call controladorPrincipal  
 					
 					exit
- 00000A89			main ENDP
+ 00000A8D			main ENDP
 
 				END main    
-Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/22/16 11:41:03
+Microsoft (R) Macro Assembler Version 12.00.30501.0	    08/23/16 11:43:44
 !Planilha-Vintage(FelipeJoseBento			     Symbols 2 - 1
 
 
@@ -2078,8 +2082,8 @@ Segments and Groups:
 
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
-_DATA  . . . . . . . . . . . . .	32 Bit	 000009FD Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 00000A89 Para	  Public  'CODE'	
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000A0C Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000A8D Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -2230,7 +2234,7 @@ WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-controladorFormula . . . . . . .	P Near	 00000823 _TEXT	Length= 0000025A Public STDCALL
+controladorFormula . . . . . . .	P Near	 00000823 _TEXT	Length= 0000025E Public STDCALL
   MAIOR  . . . . . . . . . . . .	L Near	 0000084C _TEXT	
   L1 . . . . . . . . . . . . . .	L Near	 00000893 _TEXT	
   T1 . . . . . . . . . . . . . .	L Near	 000008A5 _TEXT	
@@ -2244,16 +2248,16 @@ controladorFormula . . . . . . .	P Near	 00000823 _TEXT	Length= 0000025A Public 
   SALVA  . . . . . . . . . . . .	L Near	 0000095A _TEXT	
   CONT . . . . . . . . . . . . .	L Near	 00000964 _TEXT	
   CONT1  . . . . . . . . . . . .	L Near	 000009B0 _TEXT	
-  INCR . . . . . . . . . . . . .	L Near	 000009C3 _TEXT	
-  SALT . . . . . . . . . . . . .	L Near	 000009C4 _TEXT	
-  FIMC . . . . . . . . . . . . .	L Near	 000009CD _TEXT	
-  FORMULA  . . . . . . . . . . .	L Near	 000009D7 _TEXT	
-  MULTI  . . . . . . . . . . . .	L Near	 00000A49 _TEXT	
-  DIVISAO  . . . . . . . . . . .	L Near	 00000A50 _TEXT	
-  SOMA . . . . . . . . . . . . .	L Near	 00000A61 _TEXT	
-  SUBE . . . . . . . . . . . . .	L Near	 00000A68 _TEXT	
-  NOPE . . . . . . . . . . . . .	L Near	 00000A6F _TEXT	
-  S1 . . . . . . . . . . . . . .	L Near	 00000A77 _TEXT	
+  INCR . . . . . . . . . . . . .	L Near	 000009C7 _TEXT	
+  SALT . . . . . . . . . . . . .	L Near	 000009C8 _TEXT	
+  FIMC . . . . . . . . . . . . .	L Near	 000009D1 _TEXT	
+  FORMULA  . . . . . . . . . . .	L Near	 000009DB _TEXT	
+  MULTI  . . . . . . . . . . . .	L Near	 00000A4D _TEXT	
+  DIVISAO  . . . . . . . . . . .	L Near	 00000A54 _TEXT	
+  SOMA . . . . . . . . . . . . .	L Near	 00000A65 _TEXT	
+  SUBE . . . . . . . . . . . . .	L Near	 00000A6C _TEXT	
+  NOPE . . . . . . . . . . . . .	L Near	 00000A73 _TEXT	
+  S1 . . . . . . . . . . . . . .	L Near	 00000A7B _TEXT	
 controladorPrincipal . . . . . .	P Near	 000006AC _TEXT	Length= 00000177 Public STDCALL
   InicioControlador  . . . . . .	L Near	 000006AF _TEXT	
   controladorInsere  . . . . . .	L Near	 00000711 _TEXT	
@@ -2266,7 +2270,7 @@ controladorPrincipal . . . . . .	P Near	 000006AC _TEXT	Length= 00000177 Public 
   controladorcNum  . . . . . . .	L Near	 000007E4 _TEXT	
   controladorCopiaFormula  . . .	L Near	 000007FF _TEXT	
   FimControlador . . . . . . . .	L Near	 0000081A _TEXT	
-main . . . . . . . . . . . . . .	P Near	 00000A7D _TEXT	Length= 0000000C Public STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000A81 _TEXT	Length= 0000000C Public STDCALL
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
@@ -2496,34 +2500,34 @@ VK_UP  . . . . . . . . . . . . .	Number	 00000026h
 WINDOW_BUFFER_SIZE_EVENT . . . .	Number	 00000004h   
 WriteConsoleOutputCharacter  . .	Text   	 WriteConsoleOutputCharacterA
 WriteConsole . . . . . . . . . .	Text   	 WriteConsoleA
-areaTransferencia  . . . . . . .	Cell	 000009E2 _DATA	
+areaTransferencia  . . . . . . .	Cell	 000009F1 _DATA	
 black  . . . . . . . . . . . . .	Number	 00000000h   
 blue . . . . . . . . . . . . . .	Number	 00000001h   
 brown  . . . . . . . . . . . . .	Number	 00000006h   
-copiarMsg1 . . . . . . . . . . .	Byte	 000007EF _DATA	
-copiarMsg2 . . . . . . . . . . .	Byte	 0000081D _DATA	
-copiarMsg3 . . . . . . . . . . .	Byte	 0000084A _DATA	
-copiarMsg4 . . . . . . . . . . .	Byte	 0000087D _DATA	
+copiarMsg1 . . . . . . . . . . .	Byte	 000007FE _DATA	
+copiarMsg2 . . . . . . . . . . .	Byte	 0000082C _DATA	
+copiarMsg3 . . . . . . . . . . .	Byte	 00000859 _DATA	
+copiarMsg4 . . . . . . . . . . .	Byte	 0000088C _DATA	
 cyan . . . . . . . . . . . . . .	Number	 00000003h   
-excluirMsg1  . . . . . . . . . .	Byte	 00000775 _DATA	
-excluirMsg2  . . . . . . . . . .	Byte	 000007A4 _DATA	
-excluirMsg3  . . . . . . . . . .	Byte	 000007D2 _DATA	
+excluirMsg1  . . . . . . . . . .	Byte	 00000784 _DATA	
+excluirMsg2  . . . . . . . . . .	Byte	 000007B3 _DATA	
+excluirMsg3  . . . . . . . . . .	Byte	 000007E1 _DATA	
 exit . . . . . . . . . . . . . .	Text   	 INVOKE ExitProcess,0
-formulaEntrada . . . . . . . . .	DWord	 000009F9 _DATA	
-funcaoMsg1 . . . . . . . . . . .	Byte	 00000716 _DATA	
-funcaoMsg2 . . . . . . . . . . .	Byte	 00000744 _DATA	
+formulaEntrada . . . . . . . . .	DWord	 00000A08 _DATA	
+funcaoMsg1 . . . . . . . . . . .	Byte	 00000725 _DATA	
+funcaoMsg2 . . . . . . . . . . .	Byte	 00000753 _DATA	
 gray . . . . . . . . . . . . . .	Number	 00000008h   
 green  . . . . . . . . . . . . .	Number	 00000002h   
-inserirMsg10 . . . . . . . . . .	Byte	 000006AA _DATA	
-inserirMsg11 . . . . . . . . . .	Byte	 000006E4 _DATA	
-inserirMsg1  . . . . . . . . . .	Byte	 00000578 _DATA	
-inserirMsg2  . . . . . . . . . .	Byte	 000005A1 _DATA	
-inserirMsg3  . . . . . . . . . .	Byte	 000005C9 _DATA	
-inserirMsg5  . . . . . . . . . .	Byte	 00000603 _DATA	
-inserirMsg6  . . . . . . . . . .	Byte	 00000616 _DATA	
-inserirMsg7  . . . . . . . . . .	Byte	 00000629 _DATA	
-inserirMsg8  . . . . . . . . . .	Byte	 0000064F _DATA	
-inserirMsg9  . . . . . . . . . .	Byte	 00000670 _DATA	
+inserirMsg10 . . . . . . . . . .	Byte	 000006B9 _DATA	
+inserirMsg11 . . . . . . . . . .	Byte	 000006F3 _DATA	
+inserirMsg1  . . . . . . . . . .	Byte	 00000587 _DATA	
+inserirMsg2  . . . . . . . . . .	Byte	 000005B0 _DATA	
+inserirMsg3  . . . . . . . . . .	Byte	 000005D8 _DATA	
+inserirMsg5  . . . . . . . . . .	Byte	 00000612 _DATA	
+inserirMsg6  . . . . . . . . . .	Byte	 00000625 _DATA	
+inserirMsg7  . . . . . . . . . .	Byte	 00000638 _DATA	
+inserirMsg8  . . . . . . . . . .	Byte	 0000065E _DATA	
+inserirMsg9  . . . . . . . . . .	Byte	 0000067F _DATA	
 lightBlue  . . . . . . . . . . .	Number	 00000009h   
 lightCyan  . . . . . . . . . . .	Number	 0000000Bh   
 lightGray  . . . . . . . . . . .	Number	 00000007h   
@@ -2531,26 +2535,26 @@ lightGreen . . . . . . . . . . .	Number	 0000000Ah
 lightMagenta . . . . . . . . . .	Number	 0000000Dh   
 lightRed . . . . . . . . . . . .	Number	 0000000Ch   
 magenta  . . . . . . . . . . . .	Number	 00000005h   
-menuMsg1 . . . . . . . . . . . .	Byte	 00000536 _DATA	
-menuMsgErro  . . . . . . . . . .	Byte	 00000549 _DATA	
+menuMsg1 . . . . . . . . . . . .	Byte	 00000545 _DATA	
+menuMsgErro  . . . . . . . . . .	Byte	 00000558 _DATA	
 menuOp1  . . . . . . . . . . . .	Byte	 00000422 _DATA	
 menuOp2  . . . . . . . . . . . .	Byte	 0000044E _DATA	
 menuOp3  . . . . . . . . . . . .	Byte	 00000473 _DATA	
-menuOp4  . . . . . . . . . . . .	Byte	 0000049E _DATA	
-menuOp5  . . . . . . . . . . . .	Byte	 000004CC _DATA	
-menuOp6  . . . . . . . . . . . .	Byte	 000004E7 _DATA	
-menuOp7  . . . . . . . . . . . .	Byte	 000004F9 _DATA	
-menuOp8  . . . . . . . . . . . .	Byte	 0000050B _DATA	
-menuOp9  . . . . . . . . . . . .	Byte	 00000520 _DATA	
+menuOp4  . . . . . . . . . . . .	Byte	 000004A9 _DATA	
+menuOp5  . . . . . . . . . . . .	Byte	 000004D7 _DATA	
+menuOp6  . . . . . . . . . . . .	Byte	 000004F2 _DATA	
+menuOp7  . . . . . . . . . . . .	Byte	 00000504 _DATA	
+menuOp8  . . . . . . . . . . . .	Byte	 00000516 _DATA	
+menuOp9  . . . . . . . . . . . .	Byte	 0000052F _DATA	
 menu . . . . . . . . . . . . . .	Byte	 0000040B _DATA	
-recortarMsg1 . . . . . . . . . .	Byte	 000008B0 _DATA	
-recortarMsg2 . . . . . . . . . .	Byte	 000008E0 _DATA	
-recortarMsg3 . . . . . . . . . .	Byte	 0000090F _DATA	
-recortarMsg4 . . . . . . . . . .	Byte	 0000093D _DATA	
+recortarMsg1 . . . . . . . . . .	Byte	 000008BF _DATA	
+recortarMsg2 . . . . . . . . . .	Byte	 000008EF _DATA	
+recortarMsg3 . . . . . . . . . .	Byte	 0000091E _DATA	
+recortarMsg4 . . . . . . . . . .	Byte	 0000094C _DATA	
 red  . . . . . . . . . . . . . .	Number	 00000004h   
-selecionarMsg1 . . . . . . . . .	Byte	 0000096B _DATA	
-selecionarMsg2 . . . . . . . . .	Byte	 0000099D _DATA	
-selecionarMsg3 . . . . . . . . .	Byte	 000009CE _DATA	
+selecionarMsg1 . . . . . . . . .	Byte	 0000097A _DATA	
+selecionarMsg2 . . . . . . . . .	Byte	 000009AC _DATA	
+selecionarMsg3 . . . . . . . . .	Byte	 000009DD _DATA	
 tamTexto . . . . . . . . . . . .	Number	 00000008h   
 white  . . . . . . . . . . . . .	Number	 0000000Fh   
 wsprintf . . . . . . . . . . . .	Text   	 wsprintfA

@@ -57,16 +57,16 @@ module crypto
    `LOG2_FUNC
    
    //--------------------- Internal Parameter-------------------------
-   localparam NUM_STATES = 4;
+   localparam NUM_STATES = 5; // Adicao de um novo estado
 
    localparam PROCESS_CTRL_HDR    = 1;
    localparam ETH_IP_HDR          = 2;
    localparam FINAL_IP_HDR        = 4;
    localparam PAYLOAD             = 8;
+   localparam PASSA_PACOTE        = 16; // Estado que passa o pacote para saida sem criptografar
 
    // Which word contains the final IP header bytes?
    localparam FINAL_IP_HDR_WORD   = 5;
-   localparam key1                = 32'h01234567;
 
    //---------------------- Wires and regs----------------------------
 
@@ -77,6 +77,9 @@ module crypto
    wire                             in_fifo_empty;
 
    wire [`CPCI_NF2_DATA_WIDTH-1:0]  key;
+
+   // Endereco IP a ser filtrado pelo Firewall
+   wire [31:0] ip;
 
    reg [NUM_STATES-1:0]             state;
    reg [NUM_STATES-1:0]             state_next;
@@ -103,7 +106,7 @@ module crypto
       .TAG                 (`CRYPTO_BLOCK_ADDR),
       .REG_ADDR_WIDTH      (`CRYPTO_REG_ADDR_WIDTH),                       // Width of block addresses
       .NUM_COUNTERS        (0),                       // How many counters
-      .NUM_SOFTWARE_REGS   (1),                       // How many sw regs
+      .NUM_SOFTWARE_REGS   (2),                       // How many sw regs -- Adicao de mais um software_reg
       .NUM_HARDWARE_REGS   (0)                        // How many hw regs
    ) crypto_regs (
       .reg_req_in       (reg_req_in),
@@ -125,7 +128,9 @@ module crypto
       .counter_decrement(),
 
       // --- SW regs interface
-      .software_regs    (key),
+
+      // Passando o endereco IP por software
+      .software_regs    ({ip,key}),
 
       // --- HW regs interface
       .hardware_regs    (),
@@ -179,23 +184,59 @@ module crypto
                   count_next = count + 1;
 
                   if (count == FINAL_IP_HDR_WORD - 1) begin
-                     state_next = FINAL_IP_HDR;
+		     // Compara parte do IP Destino contido na WORD 4
+                     if(ip[31:16] == in_fifo_data_dout[15:0])
+                        begin // Se for igual, continua verificacao do IP
+                           state_next = FINAL_IP_HDR;   
+                        end
+                     else
+                        begin // Senao, passa o pacote sem criptografar
+                           state_next = PASSA_PACOTE;
+                        end
                   end
                end
             end // case: ETH_IP_HDR
    
-            // In the final IP header word, touch only the last 2 bytes
+            // In the final IP header word (WORD 5), touch only the last 2 bytes
             FINAL_IP_HDR: begin
                // Wait for data to be in the FIFO and the output to be ready
                if (!in_fifo_empty && out_rdy) begin
                   out_wr = 1;
                   in_fifo_rd_en = 1;
-                  out_data[63:48] = in_fifo_data_dout[63:48];
-                  out_data[47:0] = in_fifo_data_dout[47:0] ^ {key[15:0], key};
-                  state_next = PAYLOAD;
+                  
+                  // Se for o pacote com IP procurado, criptografa cabeçalho e passa para PAYLOAD
+                  if(ip[15:0] == in_fifo_data_dout[63:48])
+                     begin
+                        out_data[63:48] = in_fifo_data_dout[63:48];
+                        out_data[47:0] = in_fifo_data_dout[47:0] ^ {key[15:0], key};
+                        state_next = PAYLOAD;
+                     end
+                  else
+                     // Se não for o pacote com IP procurado, vai para o estado PASSA_PACOTE, ou seja, passa o pacote sem criptografar
+                     begin
+                        state_next = PASSA_PACOTE;
+                     end
                end
             end // case: FINAL_IP_HDR
-   
+
+            // Passa pacote para a saida sem criptografar
+            PASSA_PACOTE: begin
+               // Wait for data to be in the FIFO and the output to be ready
+               if (!in_fifo_empty && out_rdy) begin
+                  out_wr = 1;
+                  in_fifo_rd_en = 1;
+
+                  // Passa pacote para saida
+                  out_data = in_fifo_data_dout;
+
+                  // Check for EOP
+                  if (in_fifo_ctrl_dout != 'h0) begin
+                     state_next = PROCESS_CTRL_HDR;
+                     count_next = 'd1;
+                  end
+               end
+            end // case: PASSA_PACOTE
+
             // Process all data
             PAYLOAD: begin
                // Wait for data to be in the FIFO and the output to be ready

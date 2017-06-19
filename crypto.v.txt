@@ -14,6 +14,11 @@
 //  Caveats: Things will break for IPv4 packets with options... :-/
 //
 ///////////////////////////////////////////////////////////////////////////////
+
+// CryptoNIC
+// Felipe José Bento da Silva
+// 609668 
+
 `timescale 1ns/1ps
 module crypto 
    #(
@@ -57,13 +62,13 @@ module crypto
    `LOG2_FUNC
    
    //--------------------- Internal Parameter-------------------------
-   localparam NUM_STATES = 5; // Adicao de um novo estado
+   localparam NUM_STATES = 5; // Iremos ter agora 5 estados, ao inves de 4 - New State
 
    localparam PROCESS_CTRL_HDR    = 1;
    localparam ETH_IP_HDR          = 2;
    localparam FINAL_IP_HDR        = 4;
    localparam PAYLOAD             = 8;
-   localparam PASSA_PACOTE        = 16; // Estado que passa o pacote para saida sem criptografar
+   localparam PASSA_PACOTE        = 16; // Estado 5 - Transfere o pacote para a saida, s/ criptografia
 
    // Which word contains the final IP header bytes?
    localparam FINAL_IP_HDR_WORD   = 5;
@@ -78,7 +83,7 @@ module crypto
 
    wire [`CPCI_NF2_DATA_WIDTH-1:0]  key;
 
-   // Endereco IP a ser filtrado pelo Firewall
+   // O endereço que será filtrado. Endereço IP
    wire [31:0] ip;
 
    reg [NUM_STATES-1:0]             state;
@@ -104,10 +109,13 @@ module crypto
    #( 
       .UDP_REG_SRC_WIDTH   (UDP_REG_SRC_WIDTH),
       .TAG                 (`CRYPTO_BLOCK_ADDR),
-      .REG_ADDR_WIDTH      (`CRYPTO_REG_ADDR_WIDTH),                       // Width of block addresses
-      .NUM_COUNTERS        (0),                       // How many counters
-      .NUM_SOFTWARE_REGS   (2),                       // How many sw regs -- Adicao de mais um software_reg
+      .REG_ADDR_WIDTH      (`CRYPTO_REG_ADDR_WIDTH),  // Width of block addresses
+      .NUM_COUNTERS        (0),                       // How many counter
+   
+       //Temos mais um estado, mais um reg, assim mais um software_reg
+      .NUM_SOFTWARE_REGS   (2),                       // How many sw regs
       .NUM_HARDWARE_REGS   (0)                        // How many hw regs
+      
    ) crypto_regs (
       .reg_req_in       (reg_req_in),
       .reg_ack_in       (reg_ack_in),
@@ -129,7 +137,7 @@ module crypto
 
       // --- SW regs interface
 
-      // Passando o endereco IP por software
+      // Tranferindo endereço
       .software_regs    ({ip,key}),
 
       // --- HW regs interface
@@ -186,11 +194,11 @@ module crypto
                   if (count == FINAL_IP_HDR_WORD - 1) begin
 		     // Compara parte do IP Destino contido na WORD 4
                      if(ip[31:16] == in_fifo_data_dout[15:0])
-                        begin // Se for igual, continua verificacao do IP
+                        begin // Se for igual, verifica novamente IP
                            state_next = FINAL_IP_HDR;   
                         end
                      else
-                        begin // Senao, passa o pacote sem criptografar
+                        begin // Se não for igual, passa o pacote sem criptografia (inicial recebido)
                            state_next = PASSA_PACOTE;
                         end
                   end
@@ -204,7 +212,7 @@ module crypto
                   out_wr = 1;
                   in_fifo_rd_en = 1;
                   
-                  // Se for o pacote com IP procurado, criptografa cabeçalho e passa para PAYLOAD
+                  // Se for o pacote com IP desejado, criptografa o seu cabeçalho e passa para PAYLOAD
                   if(ip[15:0] == in_fifo_data_dout[63:48])
                      begin
                         out_data[63:48] = in_fifo_data_dout[63:48];
@@ -212,21 +220,21 @@ module crypto
                         state_next = PAYLOAD;
                      end
                   else
-                     // Se não for o pacote com IP procurado, vai para o estado PASSA_PACOTE, ou seja, passa o pacote sem criptografar
+                     // Se não for, vai para o estado , CRIADO, PASSA_PACOTE. Assim, sem criptografia
                      begin
                         state_next = PASSA_PACOTE;
                      end
                end
             end // case: FINAL_IP_HDR
 
-            // Passa pacote para a saida sem criptografar
+            // Passa pacote para a saida, sendo esse o (5), sem criptografia
             PASSA_PACOTE: begin
                // Wait for data to be in the FIFO and the output to be ready
                if (!in_fifo_empty && out_rdy) begin
                   out_wr = 1;
                   in_fifo_rd_en = 1;
 
-                  // Passa pacote para saida
+                  //Vai para saida, o pacote
                   out_data = in_fifo_data_dout;
 
                   // Check for EOP
@@ -265,3 +273,5 @@ module crypto
    end
 
 endmodule // crypto
+
+//fim
